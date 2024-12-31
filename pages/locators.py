@@ -1,7 +1,5 @@
 from selenium.webdriver.common.by import By
 
-class MainPageLocators():
-    LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")#Кнопка "Войти или зарегистрироваться"
 
 class LoginPageLocators():
     LOGIN_FORM = (By.CSS_SELECTOR, '#login_form')#сама форма логина
@@ -22,3 +20,7 @@ class ShopPage():
     BASKET_NAME_PRODUCT = (By.XPATH, "(//div[@class='alertinner ']//strong)[1]") # название товара, добавленного в корзину
     NAME_PRODUCT = (By.XPATH, "//div[@class='col-sm-6 product_main']//h1[1]")# название товара
     SUCCESS_MESSAGE = (By.XPATH, "(//div[contains(@class,'alert alert-safe')])[1]")# сообщение об успешном добавлении в корзину
+
+class BasePageLocators():
+    LOGIN_LINK = (By.CSS_SELECTOR, "#login_link") #Кнопка "Войти или зарегистрироваться"
+    LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")

@@ -1,4 +1,5 @@
 import math
+from .locators import BasePageLocators
 from selenium.common.exceptions import NoAlertPresentException
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import TimeoutException
@@ -50,3 +51,10 @@ class BasePage():
         except TimeoutException:
             return False
         return True
+
+    def go_to_login_page(self):
+        login_link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
+        login_link.click()
+    def should_be_login_link(self):
+        assert self.is_elemnt_present(*BasePageLocators.LOGIN_LINK), "login link is not presented"
+        #Обратите внимание здесь на символ *, он указывает на то, что мы передали именно пару, и этот кортеж нужно распаковать.
