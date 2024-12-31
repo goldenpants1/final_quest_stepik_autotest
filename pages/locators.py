@@ -21,3 +21,4 @@ class ShopPage():
     BASKET_PRICE = (By.XPATH, "(//div[@class='alertinner ']//strong)[3]") # сумма в корзине
     BASKET_NAME_PRODUCT = (By.XPATH, "(//div[@class='alertinner ']//strong)[1]") # название товара, добавленного в корзину
     NAME_PRODUCT = (By.XPATH, "//div[@class='col-sm-6 product_main']//h1[1]")# название товара
+    SUCCESS_MESSAGE = (By.XPATH, "(//div[contains(@class,'alert alert-safe')])[1]")# сообщение об успешном добавлении в корзину
