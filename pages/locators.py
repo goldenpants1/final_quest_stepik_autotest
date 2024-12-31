@@ -14,3 +14,10 @@ class LoginPageLocators():
     ENTER_BUTTON = (By.CSS_SELECTOR, "#login_form>button")# кнопка "Войти"
     REG_BUTTON = (By.CSS_SELECTOR, "#register_form>button")# кнопка "Зарегистрироваться"
     REMEMBER_PASS_BUTTON = (By.CSS_SELECTOR, "#login_form>p>a")# кнопка "Я забыл пароль"
+
+class ShopPage():
+    ADD_TO_BASKET = (By.CSS_SELECTOR, "#add_to_basket_form>button")#кнопка "добавить в корзину"
+    PRICE = (By.XPATH, "(//p[@class='price_color'])[1]")# цена товара
+    BASKET_PRICE = (By.XPATH, "(//div[@class='alertinner ']//strong)[3]") # сумма в корзине
+    BASKET_NAME_PRODUCT = (By.XPATH, "(//div[@class='alertinner ']//strong)[1]") # название товара, добавленного в корзину
+    NAME_PRODUCT = (By.XPATH, "//div[@class='col-sm-6 product_main']//h1[1]")# название товара
