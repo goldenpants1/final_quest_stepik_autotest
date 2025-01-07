@@ -24,3 +24,8 @@ class ShopPage():
 class BasePageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link") #Кнопка "Войти или зарегистрироваться"
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
+    BASKET_BUTTON = (By.XPATH, "//a[@class='btn btn-default']")  # Кнопка перехода в коризну
+
+class Basket():
+    EMPTY_BASKET = (By.CSS_SELECTOR, "div#content_inner>p123")#Надпись "ваша корзина пуста"
+    ITEM_BASKET = (By.CSS_SELECTOR, ".basket-items")#Блок товара в коризине

@@ -14,9 +14,9 @@ class BasePage():
         self.browser.implicitly_wait(timeout)
     def open(self):
         self.browser.get(self.url)
-    def is_elemnt_present(self, how, what):
+    def is_elemnt_present(self, method, selector):
         try:
-            self.browser.find_element(how, what)
+            self.browser.find_element(method, selector)
         except(NoSuchElementException):
             return False
         return True
@@ -58,3 +58,7 @@ class BasePage():
     def should_be_login_link(self):
         assert self.is_elemnt_present(*BasePageLocators.LOGIN_LINK), "login link is not presented"
         #Обратите внимание здесь на символ *, он указывает на то, что мы передали именно пару, и этот кортеж нужно распаковать.
+
+    def go_to_basket(self):
+        basket_button = self.browser.find_element(*BasePageLocators.BASKET_BUTTON)
+        basket_button.click()
