@@ -13,7 +13,7 @@ class LoginPageLocators():
     REG_BUTTON = (By.CSS_SELECTOR, "#register_form>button")# кнопка "Зарегистрироваться"
     REMEMBER_PASS_BUTTON = (By.CSS_SELECTOR, "#login_form>p>a")# кнопка "Я забыл пароль"
 
-class ShopPage():
+class ShopPageLocators():
     ADD_TO_BASKET = (By.CSS_SELECTOR, "#add_to_basket_form>button")#кнопка "добавить в корзину"
     PRICE = (By.XPATH, "(//p[@class='price_color'])[1]")# цена товара
     BASKET_PRICE = (By.XPATH, "(//div[@class='alertinner ']//strong)[3]") # сумма в корзине
@@ -27,6 +27,6 @@ class BasePageLocators():
     BASKET_BUTTON = (By.XPATH, "//a[@class='btn btn-default']")  # Кнопка перехода в коризну
     USER_ICON = (By.CSS_SELECTOR, ".icon-user") #проверить этот локатор, его прямо в тексте задания дали
 
-class Basket():
-    EMPTY_BASKET = (By.CSS_SELECTOR, "div#content_inner>p123")#Надпись "ваша корзина пуста"
+class BasketLocators():
+    EMPTY_BASKET = (By.CSS_SELECTOR, "div#content_inner>p")#Надпись "ваша корзина пуста"
     ITEM_BASKET = (By.CSS_SELECTOR, ".basket-items")#Блок товара в коризине
