@@ -1,7 +1,38 @@
 import pytest
+import time
 from .pages.product_page import ProductPage
 from .pages.locators import ShopPage
 from .pages.basket_page import BasketPage
+from .pages.login_page import LoginPage
+
+@pytest.mark.usertest
+class TestUserAddToBasketFromProductPage:
+    @pytest.fixture(scope="function", autouse=True)
+    def setup(self, browser):
+        self.link = "https://selenium1py.pythonanywhere.com/accounts/login/"
+        self.password = "testing_password_1234"
+        self.email = str(time.time()) + "@fakemail.org"
+        self.page = LoginPage(browser, self.link)
+        self.page.open()
+        self.page.register_new_user(email=self.email, password=self.password)
+        self.page.should_be_authorized_user()
+
+    def test_user_can_add_product_to_basket(self, browser):
+        link = f"http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
+        page = ProductPage(browser, link)
+        page.open()
+        price_product = page.browser.find_element(*ShopPage.PRICE).text
+        name_product = page.browser.find_element(*ShopPage.NAME_PRODUCT).text
+        page.add_to_basket()
+        page.price(price_product=price_product)
+        page.product_name(name_product=name_product)
+
+    def test_user_cant_see_success_message(self, browser):
+        link = "https://selenium1py.pythonanywhere.com/ru/catalogue/the-shellcoders-handbook_209/"
+        page = ProductPage(browser, link)
+        page.open()
+        page.is_not_element_present(*ShopPage.SUCCESS_MESSAGE)
+        page.should_not_be_success_message()
 
 @pytest.mark.skip
 @pytest.mark.parametrize('promo_offer', ["0","1", "2", "3", "4", "5", "6", "8", "9", pytest.param("7", marks=pytest.mark.xfail)                                         ])
